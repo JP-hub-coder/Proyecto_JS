@@ -1,0 +1,35 @@
+:root {
+    --primary-color: #355872;
+    --secondary-color: #7AAACE;
+    --third-color: #9CD5FF;
+    --hover-color: #0fa1c5;
+}
+
+.barra_superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #355872;
+    padding: 10px 20px;
+    color: white;
+}
+
+.pages {
+    display: flex;
+    gap: 20px;
+}
+
+.pages button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    width: auto;
+    height: 60px;
+    background-color: #03495a;
+    border-radius: 7px;
+}
