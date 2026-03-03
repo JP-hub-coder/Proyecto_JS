@@ -18,5 +18,25 @@ function verificarFecha(){
     }
     birth.max = `${anio}-${mes}-${dia}`
 }
+console.log(birth.value)
 
 //Local storage
+const btn = document.querySelector(".iniciar_sesión")
+
+const email = document.getElementById("email");
+const user = document.getElementById("username");
+const password = document.getElementById("password")
+
+btn.addEventListener("click", ()=>{
+    const users = JSON.parse(localStorage.getItem("usuarios"))
+    data = {
+        "Nombre":user.value,
+        "Email":email.value,
+        "nacimiento":birth.value,
+        "contraseña":password.value,
+        "rol":"estudiante"
+    }
+    users.push(data)
+    localStorage.removeItem("usuarios")
+    localStorage.setItem("usuarios", JSON.stringify(users))
+})
