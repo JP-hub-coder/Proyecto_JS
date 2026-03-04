@@ -30,6 +30,7 @@ function verificarFocus(){
 btnCursos.addEventListener("click", ()=>{
     verificarFocus()
     btnCursos.classList+=" focus"
+    document.querySelector(".cursos").classList = "cursos"
 
 
     data = getUserData();
@@ -41,10 +42,10 @@ btnCursos.addEventListener("click", ()=>{
             //console.log("el curso "+cursos[i]['Nombre']+" Esta en este estudiante")
             document.querySelector(".cursos-container").innerHTML+=`
                 <div class="curso-card">
-                    <img src="../media/curso1" alt="Curso 1">
+                    <img src="${cursos[i]['img']}" alt="Curso ${i}">
                     <h3>${cursos[i]['Nombre']}</h3>
                     <p>${cursos[i]['Descripcion']}</p>
-                    <button class="abrir-${cursos[i]['id']} button-curso" onClick="AbrirCurso(${cursos[i]['id']})">Ver</button>  
+                    <button class="abrir-${cursos[i]['id']} button-curso" onClick="AbrirCurso('${cursos[i]['id']}')">Ver</button>  
                 </div>
             `
         }
@@ -68,3 +69,19 @@ btnCursosTotal.addEventListener("click", ()=>{
         
     }
 })
+
+//Abrir curso
+function AbrirCurso(curso){
+    for (let index = 0; index < cursos.length; index++) {
+        if(cursos[index]['id'] == curso){
+            mostrarCurso(cursos[index])
+        }
+        
+    }
+}
+function mostrarCurso(curso){
+    const lecciones = Number(curso['Lecciones'])
+    for(let i = 0; i<lecciones; i++){
+        
+    }
+}

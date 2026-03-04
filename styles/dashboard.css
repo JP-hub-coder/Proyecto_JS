@@ -126,6 +126,11 @@
     text-align: start;
     background-color: #0fa1c5;
 }
+.cursos h2{
+    align-self: center;
+    justify-self: center;
+    color: white;
+}
 
 .cursos-container {
     display: grid;

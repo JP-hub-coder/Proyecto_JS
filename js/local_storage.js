@@ -44,37 +44,48 @@ let cursos = [
         "Profesor":"Maria",
         "lecciones":"15",
         "Descripcion":"Aprende los conceptos basicos de la prorgamacion con este curso interactivo",
-        "id":"Fund"
+        "id":"Fund",
+        "img":"../media/fundamentos.jpeg"
     },{
         "Nombre":"Ingles",
         "Profesor":"Santiago",
         "Lecciones":"84",
         "Descripcion":"Learn how to talk in English with our curse. ¡You will see results in Three months whit our certificated teachers!",
-        "id":"Ing"
+        "id":"Ing",
+        "img":"../media/ingles.webp"
+
     },{
         "Nombre":"Razonamiento Logico",
         "Profesor":"Santiago",
         "Lecciones":"12",
         "Descripcion":"Aprende a pensar de manera computacional.",
-        "id":"Raz"
+        "id":"Raz",
+        "img":"../media/razonamiento.webp"
+
     },{
         "Nombre":"Programacion Web",
         "Profesor":"Maria",
         "Lecciones":"45",
         "Descripcion":"Haz tu primera pagina web completamente funcional con este curso.",
-        "id":"Web"
+        "id":"Web",
+        "img":"../media/web.jpeg"
+
     },{
         "Nombre":"Backend Profecional",
         "Profesor":"Maria",
         "Lecciones":"70",
         "Descripcion":"Comprende el funcionamiento de las bases de datos y APIs y como obtener datos de ellas.",
-        "id":"Back"
+        "id":"Back",
+        "img":"../media/backend.png"
+
     },{
         "Nombre":"IA",
         "Profesor":"Santiago",
         "Lecciones":"40",
         "Descripcion":"Aprende sobre como generar una Inteligencia Artificial y los usos que le puedes dar.",
-        "id":"IA"
+        "id":"IA",
+        "img":"../media/IA.jpg"
+        
     }
 ]
 
@@ -97,3 +108,4 @@ function Reiniciar1(nombre, variable){
 setVariables();
 //Reiniciar() //Fuerza el reinicio de la base de datos. Solo usar en casos de emergencia. Enfasis en emergencia
 //Reiniciar1("cursos", cursos);
+//Reiniciar1("usuarios", Usuarios);
