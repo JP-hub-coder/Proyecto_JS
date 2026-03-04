@@ -5,14 +5,16 @@ let Usuarios = [
         "Email":"juan@gmail.com",
         "nacimiento":"2001-04-30",
         "contraseña":"12345678",
-        "rol":"estudiante"
+        "rol":"estudiante",
+        "cursos":["Fundamentos de programacion", "Ingles", "Razonamiento Logico"]
     },
     {
         "Nombre":"Pepe",
         "Email":"Pepe@gmail.com",
         "nacimiento":"2002-12-3",
         "contraseña":"12345678",
-        "rol":"estudiante"
+        "rol":"estudiante",
+        "cursos":["Programacion Web", "Backend Profecional", "IA", "Razonamiento Logico"]
     },
     {
         "Nombre":"Maria",
@@ -36,5 +38,62 @@ let Usuarios = [
         "rol":"admin"
     }
 ]
-localStorage.setItem("usuarios", JSON.stringify(Usuarios))
-console.log(localStorage.getItem("usuarios"));
+let cursos = [
+    {
+        "Nombre": "Fundamentos de programacion",
+        "Profesor":"Maria",
+        "lecciones":"15",
+        "Descripcion":"Aprende los conceptos basicos de la prorgamacion con este curso interactivo",
+        "id":"Fund"
+    },{
+        "Nombre":"Ingles",
+        "Profesor":"Santiago",
+        "Lecciones":"84",
+        "Descripcion":"Learn how to talk in English with our curse. ¡You will see results in Three months whit our certificated teachers!",
+        "id":"Ing"
+    },{
+        "Nombre":"Razonamiento Logico",
+        "Profesor":"Santiago",
+        "Lecciones":"12",
+        "Descripcion":"Aprende a pensar de manera computacional.",
+        "id":"Raz"
+    },{
+        "Nombre":"Programacion Web",
+        "Profesor":"Maria",
+        "Lecciones":"45",
+        "Descripcion":"Haz tu primera pagina web completamente funcional con este curso.",
+        "id":"Web"
+    },{
+        "Nombre":"Backend Profecional",
+        "Profesor":"Maria",
+        "Lecciones":"70",
+        "Descripcion":"Comprende el funcionamiento de las bases de datos y APIs y como obtener datos de ellas.",
+        "id":"Back"
+    },{
+        "Nombre":"IA",
+        "Profesor":"Santiago",
+        "Lecciones":"40",
+        "Descripcion":"Aprende sobre como generar una Inteligencia Artificial y los usos que le puedes dar.",
+        "id":"IA"
+    }
+]
+
+function setVariables(){
+    if(localStorage.getItem("cursos") === null){
+        localStorage.setItem("cursos", JSON.stringify(cursos))
+    }
+    if(localStorage.getItem("usuarios") === null){
+        localStorage.setItem("usuarios", JSON.stringify(Usuarios))
+    }
+}
+function Reiniciar(){
+    localStorage.setItem("usuarios", JSON.stringify(Usuarios))
+    localStorage.setItem("cursos", JSON.stringify(cursos))
+}
+function Reiniciar1(nombre, variable){
+    localStorage.setItem(nombre, JSON.stringify(variable))
+
+}
+setVariables();
+//Reiniciar() //Fuerza el reinicio de la base de datos. Solo usar en casos de emergencia. Enfasis en emergencia
+//Reiniciar1("cursos", cursos);

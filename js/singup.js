@@ -29,14 +29,32 @@ const password = document.getElementById("password")
 
 btn.addEventListener("click", ()=>{
     const users = JSON.parse(localStorage.getItem("usuarios"))
+    let canPush = true;
+    for (let index = 0; index < users.length; index++) {
+        if(users[index]['Email'] !== email.value){
+        
+        }else{
+            document.querySelector(".container").innerHTML+=`<small style="color:red">Ya tienes una cuenta, ¡Inicia Secion!</small>`;
+            email.style.borderColor ="red";
+            user.style.borderColor ="red";
+            password.style.borderColor ="red";
+            birth.style.borderColor="red"
+            canPush = false;
+        }
+        
+    }
     data = {
         "Nombre":user.value,
         "Email":email.value,
         "nacimiento":birth.value,
         "contraseña":password.value,
-        "rol":"estudiante"
+        "rol":"estudiante",
+        "cursos":[]
     }
-    users.push(data)
-    localStorage.removeItem("usuarios")
-    localStorage.setItem("usuarios", JSON.stringify(users))
+    if(canPush == true){
+        users.push(data)
+        localStorage.setItem("usuarios", JSON.stringify(users))
+        window.location.replace("./login.html")
+    }
+    
 })
