@@ -11,10 +11,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family:'Times New Roman', Times, serif;
-    animation: fadeIn 1s ease-in;
 }
 
-/* @keyframes fadeIn {
+
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(4px);
@@ -23,12 +23,13 @@
         opacity: 1;
         transform: translateY(0);
     } 
-} */
+}
 
 /* BARRA SUPERIOR */
 
 .barra_superior {
-    width: 100vw;
+    font-size: 30px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,13 +42,13 @@
     align-items: center;
     gap: 15px;
 }
+
 .barra-izquierda img {
     width: 80px;
     height: 80px;
 }
 
-/* BOTONES PAGINAS */
-
+/* BOTONES PAGINAS, CONTROL CAMBIO DE PAGINAS */
 .pages {
     display: flex;
     gap: 20px;
@@ -57,12 +58,13 @@
     background-color: transparent;
     border: none;
     color: white;
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.pages-button:hover {
+.pages-button:hover,
+.pages-button--active:hover {
     background-color: #03495a;
     border-radius: 7px;
     transform: scale(1.05);
@@ -70,7 +72,10 @@
 
 .pages-button--active {
     background-color: #03495a;
-    border-radius: 7px;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 /* FOTO DE PERFIL Y PERFIL(OPCIONES) */
@@ -86,7 +91,6 @@
 }
 
 .perfil_op {
-    display: none; 
     position: absolute;
     top: 60px;
     right: 20px;
@@ -98,6 +102,7 @@
 }
 
 .perfil_op button {
+    font-size: 16px;
     margin: 10px 0;
     padding: 5px 10px;
     color: #355872;
@@ -110,18 +115,22 @@
     border-radius: 5px;
 }
 
+
 /* PAGINA CURSOS */
 
 .cursos{
-    margin-top: 20px;
-    text-align: center;
+    animation: fadeIn 1s ease-in;
+    display: grid;
+    height: 100%;
+    margin-top: 0px;
+    text-align: start;
+    background-color: #0fa1c5;
 }
 
 .cursos-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 20px;
-    background-color: #0fa1c5;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
 }
 
 .cursos-container h2 {
@@ -135,11 +144,12 @@
     padding: 15px;
     margin-bottom: 15px;
     margin: 10px;
+    font-size: 27px;
 }
 
 .curso-card img {
-    width: 200px;
-    height: auto;
+    width: 400px;
+    height: 245px;
     border-radius: 10px;
 }
 
@@ -151,4 +161,56 @@
     border: none;
     border-radius: 7px;
     cursor: pointer;
+    font-size: 40px;
+}
+
+.button-curso:hover {
+    background-color: #066780;
+    transform: scale(1.05);
+}
+
+.button-curso:active {
+    background-color: #03495a;
+    transform: scale(0.95);
+}   
+
+/* CURSOS POR INDIVIDUAL */
+
+.curso {
+    animation: fadeIn 1s ease-in;
+    display: grid;
+    justify-self: center;
+    padding: 20px;
+    background-color: #7AAACE;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 30px;
+}
+
+.eliminar-curso__btn,
+.volver-curso__btn {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: #246596;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.eliminar-curso__btn:hover,
+.volver-curso__btn:hover {
+    background-color: #066780;
+    transform: scale(1.05);
+}
+
+.eliminar-curso__btn:active,
+.volver-curso__btn:active {
+    background-color: #03495a;
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none;
 }

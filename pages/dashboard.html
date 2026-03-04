@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/dashboard.css">
     <title></title>
 </head>
+
 <body>
     <header class="barra_superior">
         <div class="barra-izquierda">
@@ -15,12 +16,11 @@
         </div>
         <nav>
             <div class="pages">
-                <button class="pages-button" id="cursos">Cursos</button>
+                <button class="pages-button--active" id="cursos">Cursos</button>
                 <button class="pages-button" id="docentes">Docentes</button>
-                <button class="pages-button" id="administrativos">Administrativos</button>
-                <button class="pages-button" id="perfil">Perfil</button>    
+                <button class="pages-button" id="administrativos">Administrativos</button>    
                 <img src="../media/Perfil.png" class="profile">
-                <div class="perfil_op">
+                <div class="perfil_op hidden ">
                     <button>Perfil</button>
                     <a href="./principal.html">
                         <button>Cerrar Sesión</button>
@@ -29,71 +29,199 @@
             </div>
         </nav>
     </header>
+    <!-- PAGINA PRINCIPAL CURSOS -->
 
-    <div class="cursos">
-        <h2>Cursos</h2>
+    <div class="cursos hidden">
         <div class="cursos-container">
             <div class="curso-card">
-                <img src="../media/Curso1.png" alt="Curso 1">
-                <h3>Curso de Matemáticas</h3>
-                <p>Aprende los fundamentos de las matemáticas con este curso completo.</p>
-                <button class="ver_math button-curso">Ver</button>
+                <img src="../media/fundamentos.jpeg" alt="Curso 1">
+                <p>#001</p>
+                <h3>Fundamentos de Programación</h3>
+                <p>Fundamentos de la programación, conceptos básicos.</p>
+                <p>Docente: Marco Aurelio</p>
+                <button class="ver_fundamentos button-curso">Ver</button>
             </div>
             <div class="curso-card">
-                <img src="../media/Curso2.png" alt="Curso 2">
-                <h3>Curso de Programación</h3>
-                <p>Domina los conceptos básicos de la programación con este curso interactivo.</p>
-                <button class="ver_prog button-curso">Ver</button>
+                <img src="../media/web.jpeg" alt="Curso 2">
+                <p>#002</p>
+                <h3>Programación web</h3>
+                <p>Conceptos básicos y avanzados de la programación web.</p>
+                <button class="ver_progWeb button-curso">Ver</button>
             </div>
             <div class="curso-card">
-                <img src="../media/Curso3.png" alt="Curso 3">
-                <h3>Curso de Historia</h3>
-                <p>Explora los eventos históricos más importantes con este curso detallado.</p>
-                <button class="ver_histo button-curso">Ver</button>
+                <img src="../media/backend.png" alt="Curso 3">
+                <p>#003</p>
+                <h3>Backend Profesional</h3>
+                <p>Curso para aprender a estructurar el funcionamiento interno.</p>
+                <button class="ver_backend button-curso">Ver</button>
             </div>
             <div class="curso-card">
-                <img src="../media/Curso4.png" alt="Curso 4">
-                <h3>Curso de Física</h3>
+                <img src="../media/IA.jpg" alt="Curso 4">
+                <p>#004</p>
+                <h3>Inteligencia Artificial</h3>
                 <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
-                <button class="ver_fisica button-curso">Ver</button>
+                <button class="ver_IA button-curso">Ver</button>
             </div>
             <div class="curso-card">
-                <img src="../media/Curso5.png" alt="Curso 5">
-                <h3>Curso de Química</h3>
-                <p>Aprende sobre las sustancias, sus propiedades y las reacciones químicas.</p>
-                <button class="ver_quimica button-curso">Ver</button>
+                <img src="../media/razonamiento.webp" alt="Curso 5">
+                <p>#005</p>
+                <h3>Razonamiento Lógico</h3>
+                <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
+                <button class="ver_razonamiento button-curso">Ver</button>
             </div>
             <div class="curso-card">
-                <img src="../media/Curso6.png" alt="Curso 6">
-                <h3>Curso de Literatura</h3>
-                <p>Analiza obras clásicas y modernas para mejorar tu comprensión literaria.</p>
-                <button class="ver_literatura button-curso">Ver</button>
+                <img src="../media/ingles.webp" alt="Curso 6">
+                <p>#006</p>
+                <h3>Inglés</h3>
+                <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
+                <button class="ver_ingles button-curso">Ver</button>
             </div>
-            <div class="curso-card">
-                <img src="../media/Curso7.png" alt="Curso 7">
-                <h3>Curso de Arte</h3>
-                <p>Explora técnicas y estilos artísticos a través de este curso creativo.</p>
-                <button class="ver_arte button-curso">Ver</button>
-            </div>
-            <div class="curso-card">
-                <img src="../media/Curso8.png" alt="Curso 8">
-                <h3>Curso de Música</h3>
-                <p>Desarrolla habilidades musicales y teoría con este curso completo.</p>
-                <button class="ver_musica button-curso">Ver</button>
-            </div>
-            <div class="curso-card">
-                <img src="../media/Curso9.png" alt="Curso 9">
-                <h3>Curso de Idiomas</h3>
-                <p>Mejora tus habilidades lingüísticas en diferentes idiomas populares.</p>
-                <button class="ver_idiomas button-curso">Ver</button>
-            </div>
-            <div class="curso-card">
-                <img src="../media/Curso10.png" alt="Curso 10">
-                <h3>Curso de Economía</h3>
-                <p>Entiende los conceptos básicos de economía y su impacto en el mundo.</p>
-                <button class="ver_economia button-curso">Ver</button>
-            </div>
+        </div>
     </div>
 
+    <!-- CURSOS POR INDIVIDUAL -->
+
+    <div class="curso fund-programación hidden">
+        <div>
+            <h2>#001</h2>
+            <h2>Fundamentos de Programación</h2> <br>
+            <h4>Profesor designado: Marco Aurelio</h4>
+            <p> Cantidad de estudiantes inscritos: 59</p>
+            lecciones del curso: <br><br>
+            <p>Lógica de programación <br>
+                6 a.m - 7 a.m <br><br>
+            </p>
+            <p>Estructura de datos <br>
+                7 a.m - 8 a.m <br><br>
+            </p>
+            <p>Pensamiento Computacional <br>
+                8 a.m - 9 a.m <br><br>
+            </p>
+            <p>Programación orientada a objetos (POO) <br>
+                9 a.m - 10 a.m
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
+    <div class="curso prog-web hidden">
+        <div>
+            <h2>#002</h2>
+            <h2>Programación Web</h2> <br>
+            <h4>Profesor designado: Jonathan ramirez</h4>
+            <p> Cantidad de estudiantes inscritos: 47</p>
+            lecciones del curso: <br><br>
+            <p>HTMl y CSS <br>
+                10 a.m - 11 a.m <br><br>
+            </p>
+            <p>JavaScript <br>
+                11 a.m - 12 p.m <br><br>
+            </p>
+            <p>Frameworks <br>
+                12 a.m - 1 p.m <br><br>
+            </p>
+            <p>Consumo de APIs <br>
+                1 p.m - 2 p.m
+            </p>
+            <p>CRUD (Create, Read, Update, Delete) <br>
+                2 p.m - 3 p.m
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
+
+    <div class="curso back-prof hidden">
+        <div>
+            <h2>#003</h2>
+            <h2>Backend Profesional</h2> <br>
+            <h4>Profesor designado: Ortencia Ramos</h4>
+            <p> Cantidad de estudiantes inscritos: 48</p>
+            lecciones del curso: <br><br>
+            <p>NODE.js <br>
+                3 p.m - 4 p.m <br><br>
+            </p>
+            <p>Creación de Api rest<br>
+                4 p.m - 5 p.m <br><br>
+            </p>
+            <p>Manejo de seguridad web <br>
+                5 p.m - 6 p.m <br><br>
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
+    
+    <div class="curso IA hidden">
+        <div>
+            <h2>#004</h2>
+            <h2>Inteligencia Artificial</h2> <br>
+            <h4>Profesor designado: Roberto Acuña</h4>
+            <p> Cantidad de estudiantes inscritos: 30</p>
+            lecciones del curso: <br><br>
+            <p>Fundamentos de IA <br>
+                3 p.m - 4 p.m <br><br>
+            </p>
+            <p>Machine Learning<br>
+                4 p.m - 5 p.m <br><br>
+            </p>
+            <p>Procesamiento de datos<br>
+                5 p.m - 6 p.m <br><br>
+            </p>
+            <p>Conexiones Neuronales<br>
+                6 p.m - 7 p.m <br><br>
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
+
+    <div class="curso razonamiento hidden">
+        <div>
+            <h2>#005</h2>
+            <h2>Razonamiento Lógico</h2> <br>
+            <h4>Profesor designado: Mariana Torres</h4>
+            <p> Cantidad de estudiantes inscritos: 28</p>
+            lecciones del curso: <br><br>
+            <p>Principios básicos de lógica <br>
+                8 a.m - 9 a.m <br><br>
+            </p>
+            <p>Conectores lógicos y proposiciones<br>
+                9 a.m - 10 a.m <br><br>
+            </p>
+            <p>Inferencias y argumentación<br>
+                10 a.m - 11 a.m <br><br>
+            </p>
+            <p>Resolución de problemas lógicos<br>
+                11 a.m - 12 p.m <br><br>
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
+
+    <div class="curso ingles hidden">
+        <div>
+            <h2>#006</h2>
+            <h2>Inglés</h2> <br>
+            <h4>Profesor designado: Daniel Rodríguez</h4>
+            <p> Cantidad de estudiantes inscritos: 32</p>
+            lecciones del curso: <br><br>
+            <p>Grammar Basics <br>
+                8 a.m - 9 a.m <br><br>
+            </p>
+            <p>Listening and Pronunciation<br>
+                9 a.m - 10 a.m <br><br>
+            </p>
+            <p>Reading Comprehension<br>
+                10 a.m - 11 a.m <br><br>
+            </p>
+            <p>Conversational Practice<br>
+                11 a.m - 12 p.m <br><br>
+            </p>
+        </div>
+        <button class="eliminar-curso__btn">Eliminar el curso</button>
+        <button class="volver-curso__btn">Volver al inicio</button>
+    </div>
 </body>
 </html>
