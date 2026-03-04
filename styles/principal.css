@@ -1,17 +1,17 @@
 *{
-    font-family:'Times New Roman', Times, serif;
+    font-family:sans-serif;
 }
 body{
     margin: 0;
     padding: 0;
     width: 100%;
-    background-color: #f6ffff;
+    background-color: #f6ffff
+
 }
 .barra-superior h1{
     color: white;
     margin: 20px 25px;
 }
-
 .barra-superior{
     /* position: fixed; */
     display: flex;

@@ -1,0 +1,39 @@
+let Usuarios = [
+    {
+        "Nombre":"Juan",
+        "Email":"juan@gmail.com",
+        "nacimiento":"2001-04-30",
+        "contraseña":"12345678",
+        "rol":"estudiante"
+    },
+    {
+        "Nombre":"Pepe",
+        "Email":"Pepe@gmail.com",
+        "nacimiento":"2002-12-3",
+        "contraseña":"12345678",
+        "rol":"estudiante"
+    },
+    {
+        "Nombre":"Maria",
+        "Email":"maria@gmail.com",
+        "nacimiento":"1997-06-15",
+        "contraseña":"12345678",
+        "rol":"profesor"
+    },
+    {
+        "Nombre":"Santiago",
+        "Email":"santiago@gmail.com",
+        "nacimiento":"1989-10-25",
+        "contraseña":"12345678",
+        "rol":"profesor"
+    },
+    {
+        "Nombre":"Orlando",
+        "Email":"orlando@gmail.com",
+        "nacimiento":"1970-03-02",
+        "contraseña":"12345678",
+        "rol":"admin"
+    }
+]
+localStorage.setItem("usuarios", JSON.stringify(Usuarios))
+console.log(localStorage.getItem("usuarios"));
