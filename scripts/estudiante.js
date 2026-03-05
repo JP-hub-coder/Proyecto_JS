@@ -31,10 +31,12 @@ btnCursos.addEventListener("click", ()=>{
     verificarFocus()
     btnCursos.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
+    document.querySelector(".cursos-container").innerHTML=""
+    document.querySelector(".curso-leccion-container").classList += " hidden"
 
 
     let data = getUserData();
-    document.querySelector(".cursos-container").innerHTML=""
+    
     
     for(let i = 0; i< cursos.length; i++){
         if(data['cursos'].includes(cursos[i]['nombre'])){
@@ -54,6 +56,7 @@ btnCursosTotal.addEventListener("click", ()=>{
     btnCursosTotal.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
     document.querySelector(".cursos-container").innerHTML=""
+    document.querySelector(".curso-leccion-container").innerHTML=""
     //console.log(document.querySelector(".cursos-container"))
     for(let i = 0; i< cursos.length; i++){
         //console.log("el curso "+cursos[i]['nombre']+" Esta en este estudiante")
@@ -76,25 +79,39 @@ function AbrirCurso(curso){
         
     }
 }
+let cursoActual;
 function mostrarCurso(curso){
-    let leccion = 1
-
-    //Borramos el html de cualquier cosa anterior
-    document.querySelector(".cursos").innerHTML=""
-    document.querySelector(".curso-leccion-container").classList = "curso-leccion-container"
-
+    let leccion = 0
+    cursoActual = curso
 
     //Muestra la lista de lecciones
     document.querySelector(".lecciones").innerHTML=``
+    
     let html = `<ol>`
     for(let i = 0; i<curso['lecciones'].length; i++){
-        html += `<li>Leccion ${i+1}</li>`
+        html += `<li onClick="imprimirCurso(${i})">Leccion ${i+1}</li>`
     } 
     html += `</ol>`
     document.querySelector(".lecciones").innerHTML=html
+    
+    imprimirCurso(leccion)
+    
+}
+
+function imprimirCurso(leccion){
+    //Borramos el html de cualquier cosa anterior
+    document.querySelector(".cursos").classList += " hidden"
+    document.querySelector(".cursos-container").innerHTML=""
+    document.querySelector(".curso-leccion-container").classList = "curso-leccion-container"
 
     //Mostrar el video y eso del curso en si
     document.querySelector(".Leccion-container").innerHTML=`
-        <h1>${curso['nombre']} - ${curso['lecciones'][leccion]['titulo']}</h1>
+        <h1 style="margin-bottom:30px;">${cursoActual['nombre']} - ${cursoActual['lecciones'][leccion]['titulo']}</h1>
+        <video controls src="../media/Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster).mp4" type="mp4" style="width: 800px;"></video>
+        <h2 style="margin-top:30px; color:black;">¿Que aprenderas con esta clase?</h2>
+        <p>${cursoActual['lecciones'][leccion]['contenido']}</p>
+        <h2 style="margin-top:30px; color:black;"> Materiales extra para la clase</h2>
+        <h3>Video</h3>
+        <a href="${cursoActual['lecciones'][leccion]['multimedia']['url']}" target="_black">Ir al video</a>
     `
 }
