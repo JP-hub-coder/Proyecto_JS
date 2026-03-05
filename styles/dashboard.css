@@ -1,0 +1,381 @@
+:root {
+    --primary-color: #355872;
+    --secondary-color: #246596;
+    --third-color: #7AAACE;
+    --fourth-color: #9CD5FF;
+    --hover-color: #0fa1c5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    } 
+}
+
+/* BARRA SUPERIOR */
+
+.barra_superior {
+    font-size: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #246596; 
+    color: white;
+}
+
+.barra-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.barra-izquierda img {
+    width: 80px;
+    height: 80px;
+}
+
+/* BOTONES PAGINAS, CONTROL CAMBIO DE PAGINAS */
+.pages {
+    display: flex;
+    gap: 20px;
+}
+
+.pages-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.pages-button:hover,
+.pages-button--active:hover {
+    background-color: #03495a;
+    border-radius: 7px;
+    transform: scale(1.05);
+}
+
+.pages-button--active {
+    background-color: #03495a;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* FOTO DE PERFIL Y PERFIL(OPCIONES) */
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}   
+
+.profile:hover {
+    border: 2px solid #7AAACE;
+}
+
+.perfil_op {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    color: black;
+    background-color: white;
+    border: 1px solid #7AAACE;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.perfil_op button {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 5px 10px;
+    color: #355872;
+    cursor: pointer;
+}
+
+.perfil_op button:hover {
+    background-color: #7AAACE;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* PAGINA CURSOS */
+
+.cursos{
+    animation: fadeIn 0.5s ease-in;
+    display: grid;
+    height: 100%;
+    margin-top: 0px;
+    text-align: start;
+    background-color: #0fa1c5;
+}
+
+.cursos-container {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cursos-container h2 {
+    margin-bottom: 20px;
+}
+
+.curso-card {
+    background-color: #7AAACE;
+    border: 1px solid #7AAACE;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    margin: 10px;
+    font-size: 27px;
+}
+
+.curso-card img {
+    width: 400px;
+    height: 245px;
+    border-radius: 10px;
+}
+
+.button-curso {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #246596;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.button-curso:hover {
+    background-color: #066780;
+    transform: scale(1.05);
+}
+
+.button-curso:active {
+    background-color: #03495a;
+    transform: scale(0.95);
+}   
+
+/* CURSOS POR INDIVIDUAL */
+
+.curso {
+    animation: fadeIn 0.5s ease-in;
+    display: grid;
+    justify-self: center;
+    padding: 20px;
+    background-color: #7AAACE;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 30px;
+}
+
+.eliminar-curso__btn,
+.volver-curso__btn {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: #246596;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.eliminar-curso__btn:hover,
+.volver-curso__btn:hover {
+    background-color: #066780;
+    transform: scale(1.05);
+}
+
+.eliminar-curso__btn:active,
+.volver-curso__btn:active {
+    background-color: #03495a;
+    transform: scale(0.95);
+}
+
+/*  PAGINA DOCENTES */
+
+.btn {
+    padding: 8px 15px;
+    background-color: #246596;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 10px;
+}
+
+.btn:hover {
+    background-color: #066780;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    background-color: #03495a;
+    transform: scale(0.95);
+}
+
+/* DOCENTES */
+.docentes {
+    animation: fadeIn 0.5s ease-in;
+    display: grid;
+    height: 100%;
+    background-color: #0fa1c5;
+}
+
+.docentes-container {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.docente-card {
+    background-color: #7AAACE;
+    border: 1px solid #7AAACE;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 27px;
+}
+
+.docente-foto {
+    width: 400px;
+    height: 245px;
+    border-radius: 10px;
+}
+
+/* ADMINISTRATIVOS */
+.administrativos {
+    animation: fadeIn 0.5s ease-in;
+    display: grid;
+    height: 100%;
+    background-color: #0fa1c5;
+}
+
+.administrativos-container {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.administrativo-card {
+    background-color: #7AAACE;
+    border: 1px solid #7AAACE;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 27px;
+}
+
+/* FORMULARIOS */
+.añadir-container,
+.añadir-docente-container {
+    background-color: #2d8ad1;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 22px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.añadir-container h2,
+.añadir-docente-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.form-group {
+    display: grid;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
+.form-group label {
+    color: #1a3a4a;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 8px 12px;
+    border-radius: 7px;
+    border: none;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #9CD5FF;
+    color: #1a3a4a;
+}
+
+.form-group input:focus {
+    outline: 2px solid #246596;
+    background-color: white;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.sobreponer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 200;
+}
+
+.perfil-completo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7AAACE;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 25px;
+    width: 420px;
+    z-index: 201;
+}
+
+.perfil-completo h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.perfil-info {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: #1a3a4a;
+}
+
+.hidden {
+    display: none !important;
+}

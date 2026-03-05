@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <title>Portal ABC Administrativos</title>
+</head>
+
+<body>
+    <header class="barra_superior">
+        <div class="barra-izquierda">
+        <img src="../media/Logo-sin-fondo.png">
+        <h1>Portal ABC</h1>
+        </div>
+        <nav>
+            <div class="pages">
+                <button class="pages-button" id="cursos">Cursos</button>
+                <button class="pages-button" id="docentes">Docentes</button>
+                <button class="pages-button" id="administrativos">Administrativos</button>    
+                <img src="../media/Perfil.png" class="profile">
+                <div class="perfil_op hidden ">
+                    <button class="perfil">Perfil</button>
+                    <a href="../index.html">
+                        <button class="cerrar_sesion">Cerrar Sesión</button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- PAGINA PRINCIPAL CURSOS -->
+
+    <div class="cursos">
+        <div class="cursos-container">
+            <div class="curso-card">
+                <img src="../media/fundamentos.jpeg" alt="Curso 1">
+                <p>#001</p>
+                <h3>Fundamentos de Programación</h3>
+                <p>Fundamentos de la programación, conceptos básicos.</p>
+                <p>Docente: Marco Aurelio</p>
+                <button class="button-curso" id="ver_fundProg">Ver</button>
+            </div>
+            <div class="curso-card">
+                <img src="../media/web.jpeg" alt="Curso 2">
+                <p>#002</p>
+                <h3>Programación web</h3>
+                <p>Conceptos básicos y avanzados de la programación web.</p>
+                <p>Docente: Jonathan Ramirez</p>
+                <button class="button-curso" id="ver_progWeb">Ver</button>
+            </div>
+            <div class="curso-card">
+                <img src="../media/backend.png" alt="Curso 3">
+                <p>#003</p>
+                <h3>Backend Profesional</h3>
+                <p>Curso para aprender a estructurar el funcionamiento interno.</p>
+                <p>Docente: Ortencia Ramos</p>
+                <button class="button-curso" id="ver_backend">Ver</button>
+            </div>
+            <div class="curso-card">
+                <img src="../media/IA.jpg" alt="Curso 4">
+                <p>#004</p>
+                <h3>Inteligencia Artificial</h3>
+                <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
+                <p>Docente: Roberto Acuña</p>
+                <button class="button-curso" id="ver_IA">Ver</button>
+            </div>
+            <div class="curso-card">
+                <img src="../media/razonamiento.webp" alt="Curso 5">
+                <p>#005</p>
+                <h3>Razonamiento Lógico</h3>
+                <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
+                <p>Docente: Mariana Torres</p>
+                <button class="button-curso" id="ver_razonamiento">Ver</button>
+            </div>
+            <div class="curso-card">
+                <img src="../media/ingles.webp" alt="Curso 6">
+                <p>#006</p>
+                <h3>Inglés</h3>
+                <p>Comprende los principios básicos de la física y sus aplicaciones prácticas.</p>
+                <p>Docente: Daniel Rodríguez</p>
+                <button class="button-curso" id="ver_ingles">Ver</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CURSOS POR INDIVIDUAL -->
+
+    <div class="curso fund-programacion hidden">
+    </div>
+    <div class="curso prog-web hidden">
+    </div>
+
+    <div class="curso back-prof hidden">
+    </div>
+    
+    <div class="curso IA hidden">
+    </div>
+
+    <div class="curso razonamiento hidden">
+    </div>
+
+    <div class="curso ingles hidden">
+    </div>
+
+    <!-- DOCENTES DEL CURSO -->
+
+     <div class="docentes hidden">
+        <div class="docentes-container hidden">
+        </div>
+        <button class="btn añadir_docente">Añadir Nuevo</button>
+    </div> 
+
+    <!-- AÑADIR DOCENTE -->
+
+    <div class="añadir-docente-container hidden">
+        <h2>Añadir Docente</h2>
+
+        <div class="form-group">
+            <label for="codigo-docente">Código</label>
+            <input type="text" id="codigo-docente" placeholder="Ej: 007">
+        </div>
+
+        <div class="form-group">
+            <label for="identificacion-docente">Identificación</label>
+            <input type="text" id="identificacion-docente" placeholder="Ej: 1001001007">
+        </div>
+
+        <div class="form-group">
+            <label for="nombres-docente">Nombres</label>
+            <input type="text" id="nombres-docente" placeholder="Ej: Marco">
+        </div>
+
+        <div class="form-group">
+            <label for="apellidos-docente">Apellidos</label>
+            <input type="text" id="apellidos-docente" placeholder="Ej: Aurelio">
+        </div>
+
+        <div class="form-group">
+            <label for="email-docente">Email</label>
+            <input type="email" id="email-docente" placeholder="Ej: marco.aurelio@campus.edu">
+        </div>
+
+        <div class="form-group">
+            <label for="foto-docente">URL Foto</label>
+            <input type="text" id="foto-docente" placeholder="Ej: https://randomuser.me/api/portraits/men/11.jpg">
+        </div>
+
+        <div class="form-group">
+            <label for="area-docente">Área Académica</label>
+            <input type="text" id="area-docente" placeholder="Ej: Informática">
+        </div>
+
+        <div class="form-buttons">
+            <button class="btn btn-guardar-docente">Guardar</button>
+            <button class="btn btn-cancelar-docente">Cancelar</button>
+        </div>
+    </div>
+    <!-- ADMINISTRATIVOS -->
+
+    <div class="administrativos hidden">
+        <div class="administrativos-container hidden">
+        </div>
+        <button class="btn añadir_administrativo">Añadir nuevo</button>
+    </div>
+
+    <!-- AÑADIR ADMINISTRATIVO -->
+   <div class="añadir-container hidden">
+    <h2>Añadir Administrativo</h2>
+
+    <div class="form-group">
+        <label for="nombres">Nombres</label>
+        <input type="text" id="nombres" placeholder="Ej: Laura">
+    </div>
+
+    <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" placeholder="Ej: Gómez">
+    </div>
+
+    <div class="form-group">
+        <label for="identificacion">Identificación</label>
+        <input type="text" id="identificacion" placeholder="Ej: 2002002004">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Ej: laura.gomez@campus.edu">
+    </div>
+
+    <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" placeholder="Ej: 3101234567">
+    </div>
+
+    <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" placeholder="Ej: Coordinadora Académica">
+    </div>
+
+    <div class="form-buttons">
+        <button class="btn btn-guardar">Guardar</button>
+        <button class="btn btn-cancelar">Cancelar</button>
+    </div>
+</div>
+
+<div class="sobreponer hidden"></div>
+
+<div class="perfil-completo hidden">
+    <h2>Mi Perfil</h2>
+    <div class="perfil-info">
+        <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>Fecha de nacimiento:</strong> <span id="perfil-nacimiento"></span></p>
+        <p><strong>Rol:</strong> <span id="perfil-rol"></span></p>
+    </div>
+    <button class="btn cerrar-perfil">Cerrar</button>
+</div>
+
+</body>
+<script src="../scripts/local_storage.js"></script>
+<script src="../scripts/dashboard.js"></script>
+</html>
