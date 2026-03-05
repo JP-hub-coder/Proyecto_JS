@@ -26,9 +26,10 @@ const btn = document.querySelector(".iniciar_sesión")
 const email = document.getElementById("email");
 const user = document.getElementById("username");
 const password = document.getElementById("password")
+const identificacion= document.getElementById("identificacion")
 
 btn.addEventListener("click", ()=>{
-    const users = JSON.parse(localStorage.getItem("usuarios"))
+    const users = JSON.parse(localStorage.getItem("Estudiantes"))
     let canPush = true;
     for (let index = 0; index < users.length; index++) {
         if(users[index]['Email'] !== email.value){
@@ -43,18 +44,24 @@ btn.addEventListener("click", ()=>{
         }
         
     }
+    let nombre = user.value.split(' ')
     data = {
-        "Nombre":user.value,
-        "Email":email.value,
-        "nacimiento":birth.value,
-        "contraseña":password.value,
-        "rol":"estudiante",
-        "cursos":[]
+        codigo: generarID(),
+        identificacion: identificacion.value,
+        nombres: nombre[0],
+        apellidos: nombre[1],
+        Email: email.value,
+        contraseña: password.value,
+        foto: `https://randomuser.me/api/portraits/men/9.jpg`,
+        cursos: []
     }
     if(canPush == true){
         users.push(data)
-        localStorage.setItem("usuarios", JSON.stringify(users))
+        localStorage.setItem("Estudiantes", JSON.stringify(users))
         window.location.replace("./login.html")
     }
     
 })
+function generarID(){
+    return Math.floor(1000 + Math.random() * 9000);
+}
