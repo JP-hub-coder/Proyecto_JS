@@ -9,6 +9,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 1px;
     animation: fadeIn 1s ease-in;
 }
 
@@ -83,3 +84,4 @@ label {
     background-color: #0a5e73;
     padding: 9px 19px;
 }
+

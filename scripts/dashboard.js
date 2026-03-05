@@ -37,7 +37,7 @@ document.addEventListener("click", function() { // al darle click por fuera del 
 });
 
 cerrar_sesion.addEventListener("click", function() {
-    window.location.replace("../pages/principal.html")
+    window.location.replace("../index.html")
 });
 
 perfil.addEventListener("click", function() {
@@ -359,7 +359,7 @@ docentes_btn.addEventListener("click", function() {
             <img src="${docente.foto}" class="docente-foto">
             <h3>${docente.nombres} ${docente.apellidos}</h3>
             <p><strong>Identificación:</strong> ${docente.identificacion}</p>
-            <p><strong>Email:</strong> ${docente.email}</p>
+            <p><strong>Email:</strong> ${docente.Email}</p>
             <p><strong>Área Académica:</strong> ${docente.areaAcademica}</p>
             <button class="btn eliminar-docente__btn">Eliminar Docente</button>
             <button class="btn editar-docente__btn">Editar Docente</button>
@@ -367,11 +367,28 @@ docentes_btn.addEventListener("click", function() {
 
         //boton de eliminar
         docenteCard.querySelector(".eliminar-docente__btn").addEventListener("click", function() {
+        // Guardar el nombre del docente ANTES de eliminarlo
+        const nombreDocente = `${docente.nombres} ${docente.apellidos}`;
+
+        // Eliminar el docente del localStorage
         let data = JSON.parse(localStorage.getItem("Docentes"));
         data = data.filter(d => d.codigo !== docente.codigo);
         localStorage.setItem("Docentes", JSON.stringify(data));
+
+        // Actualizar los cursos que tenían a este docente
+        let cursos = JSON.parse(localStorage.getItem("cursos_storage"));
+        cursos = cursos.map(curso => {
+            if (curso.profesor === nombreDocente) {
+                curso.profesor = "Sin asignar";
+            }
+            return curso;
+        });
+        localStorage.setItem("cursos_storage", JSON.stringify(cursos));
+
+        // Eliminar la card del DOM
         docenteCard.remove();
         });
+
 
         //boton de editar
         docenteCard.querySelector(".editar-docente__btn").addEventListener("click", function() {
@@ -379,15 +396,19 @@ docentes_btn.addEventListener("click", function() {
             document.getElementById("identificacion-docente").value = docente.identificacion;
             document.getElementById("nombres-docente").value = docente.nombres;
             document.getElementById("apellidos-docente").value = docente.apellidos;
-            document.getElementById("email-docente").value = docente.email;
+            document.getElementById("email-docente").value = docente.Email;
             document.getElementById("foto-docente").value = docente.foto;
             document.getElementById("area-docente").value = docente.areaAcademica;
 
             añadirDocenteContainer.classList.remove("hidden")
-        
+            
+            const btnGuardar = document.querySelector(".btn-guardar-docente")
+            const btnClone = btnGuardar.cloneNode(true);
+            btnGuardar.parentNode.replaceChild(btnClone, btnGuardar)
+            
 
         //actualizar en vez de solo agregar
-        document.querySelector(".btn-guardar-docente").onclick = function() {
+        btnClone.onclick = function() {
             let data = JSON.parse(localStorage.getItem("Docentes"));
             const index = data.findIndex(d => d.codigo === docente.codigo);
 
@@ -413,37 +434,51 @@ docentes_btn.addEventListener("click", function() {
 
 //añadir docente
 añadir_docente.addEventListener("click", function() {
+
+    //limpiar los inputs
+    document.getElementById("codigo-docente").value = "";
+    document.getElementById("identificacion-docente").value = "";
+    document.getElementById("nombres-docente").value = ""
+    document.getElementById("apellidos-docente").value = "";
+    document.getElementById("email-docente").value = "";
+    document.getElementById("foto-docente").value = "";
+    document.getElementById("area-docente").value = "";
+
     añadirDocenteContainer.classList.remove("hidden")
+
+    //reasignar el comportamiento de agregar y no de editar
+    const btnGuardar = document.querySelector(".btn-guardar-docente");
+    const btnClone = btnGuardar.cloneNode(true);
+    btnGuardar.parentNode.replaceChild(btnClone, btnGuardar);
+
+    document.querySelector(".btn-guardar-docente").addEventListener("click", function() {
+
+
+        const codigo = document.getElementById("codigo-docente").value;
+        const identificacion = document.getElementById("identificacion-docente").value;
+        const nombres = document.getElementById("nombres-docente").value;
+        const apellidos = document.getElementById("apellidos-docente").value;
+        const email = document.getElementById("email-docente").value;
+        const foto = document.getElementById("foto-docente").value;
+        const areaAcademica = document.getElementById("area-docente").value;
+    
+        if (!codigo || !identificacion || !nombres || !apellidos || !email || !foto || !areaAcademica) {
+            alert("Por favor rellena todos los campos");
+            return;
+        }
+    
+        let data = JSON.parse(localStorage.getItem("Docentes"));
+        data.push({ codigo, identificacion, nombres, apellidos, email, foto, areaAcademica });
+        localStorage.setItem("Docentes", JSON.stringify(data));
+    
+        añadirDocenteContainer.classList.add("hidden");
+        docentes_btn.click();
+    });
 });
 
 document.querySelector(".btn-cancelar-docente").addEventListener("click", function() {
     añadirDocenteContainer.classList.add("hidden")
 });
-
-
-//guardar docente
-document.querySelector(".btn-guardar-docente").addEventListener("click", function() {
-    const codigo = document.getElementById("codigo-docente").value;
-    const identificacion = document.getElementById("identificacion-docente").value;
-    const nombres = document.getElementById("nombres-docente").value;
-    const apellidos = document.getElementById("apellidos-docente").value;
-    const email = document.getElementById("email-docente").value;
-    const foto = document.getElementById("foto-docente").value;
-    const areaAcademica = document.getElementById("area-docente").value;
-
-    if (!codigo || !identificacion || !nombres || !apellidos || !email || !foto || !areaAcademica) {
-        alert("Por favor rellena todos los campos");
-        return;
-    }
-
-    let data = JSON.parse(localStorage.getItem("Docentes"));
-    data.push({ codigo, identificacion, nombres, apellidos, email, foto, areaAcademica });
-    localStorage.setItem("Docentes", JSON.stringify(data));
-
-    añadirDocenteContainer.classList.add("hidden");
-    docentes_btn.click();
-});
-
 
 //mostrar administrativos del localStorage
 administrativos_btn.addEventListener("click", function() {
@@ -468,7 +503,7 @@ administrativos_btn.addEventListener("click", function() {
         adminCard.innerHTML = `
             <h3>${admin.nombres} ${admin.apellidos}</h3>
             <p><strong>Identificación:</strong> ${admin.identificacion}</p>
-            <p><strong>Email:</strong> ${admin.Email}</p>
+            <p><strong>Email:</strong> ${admin.email}</p>
             <p><strong>Teléfono:</strong> ${admin.telefono}</p>
             <button class="btn eliminar-administrativo__btn">Eliminar Administrativo</button>
             <button class="btn editar-administrativo__btn">Editar Administrativo</button>
@@ -487,7 +522,7 @@ administrativos_btn.addEventListener("click", function() {
         document.getElementById("nombres").value = admin.nombres;
         document.getElementById("apellidos").value = admin.apellidos;
         document.getElementById("identificacion").value = admin.identificacion;
-        document.getElementById("email").value = admin.Email;
+        document.getElementById("email").value = admin.email;
         document.getElementById("telefono").value = admin.telefono;
         document.getElementById("cargo").value = admin.cargo;
 
