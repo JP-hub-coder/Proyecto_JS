@@ -22,19 +22,25 @@ ingresar.addEventListener("click", ()=>{
 })
 
 function verificarUsuario(rol, rolName){
-    for (let index = 0; index < rol.length; index++) {
-        if (usuario.value === rol[index]['Email'] && contraseña.value === rol[index]['contraseña']){
-            let userdata = [true ,rolName, rol[index]['nombres'], rol[index]['Email']]
-            //console.log(userdata);
-            
-            return userdata
-        }else if(usuario.value === rol[index]['Email'] && contraseña.value !== rol[index]['contraseña']){
-            usuario.style.borderColor="red"
-            contraseña.style.borderColor="red"
-            min_container.innerHTML+=`<small style="color:red;">Contraseña o usuario incorrecto</small>`
-            return false
+    if(rol == null){
+        console.log("D:");
+        
+    }else{
+        for (let index = 0; index < rol.length; index++) {
+            if (usuario.value === rol[index]['Email'] && contraseña.value === rol[index]['contraseña']){
+                let userdata = [true ,rolName, rol[index]['nombres'], rol[index]['Email']]
+                //console.log(userdata);
+                
+                return userdata
+            }else if(usuario.value === rol[index]['Email'] && contraseña.value !== rol[index]['contraseña']){
+                usuario.style.borderColor="red"
+                contraseña.style.borderColor="red"
+                min_container.innerHTML+=`<small style="color:red;">Contraseña o usuario incorrecto</small>`
+                return false
+            }
         }
     }
+    
 }
 
 function verificarRedireccion(rol){

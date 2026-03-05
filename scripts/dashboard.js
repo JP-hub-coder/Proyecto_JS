@@ -40,9 +40,6 @@ cerrar_sesion.addEventListener("click", function() {
     window.location.replace("../index.html")
 });
 
-perfil.addEventListener("click", function() {
-
-})
 
 // MIRAR CURSOS Y ENTRAR A SU INFORMACIÓN
 
@@ -591,13 +588,13 @@ document.querySelector(".btn-cancelar").addEventListener("click", function() {
 
 //mostrar el perfil después de darle a la foto
 document.querySelector(".perfil").addEventListener("click", function() {
-    const usuarios = JSON.parse(localStorage.getItem("usuarios"));
-    const usuario = usuarios[4]; //se cambia el índice según el usuario logueado
+    const Administrativos_perfil = JSON.parse(localStorage.getItem("Administrativos"));
+    const admon = Administrativos_perfil[0]; //se cambia el índice según el usuario logueado
 
-    document.getElementById("perfil-nombre").textContent = usuario.Nombre;
-    document.getElementById("perfil-email").textContent = usuario.Email;
-    document.getElementById("perfil-nacimiento").textContent = usuario.nacimiento;
-    document.getElementById("perfil-rol").textContent = usuario.rol;
+    document.getElementById("perfil-nombres").textContent = admon.nombres;
+    document.getElementById("perfil-apellidos").textContent = admon.apellidos;
+    document.getElementById("perfil-email").textContent = admon.Email;
+    document.getElementById("perfil-cargo").textContent = admon.cargo;
 
     document.querySelector(".perfil-completo").classList.remove("hidden");
     document.querySelector(".sobreponer").classList.remove("hidden");
