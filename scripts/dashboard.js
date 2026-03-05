@@ -371,8 +371,25 @@ docentes_btn.addEventListener("click", function() {
         data = data.filter(d => d.codigo !== docente.codigo);
         localStorage.setItem("Docentes", JSON.stringify(data));
         docenteCard.remove();
-        });
+    
+        // Guardar el nombre del docente antes de eliminarlo
+        const nombreDocente = `${docente.nombres} ${docente.apellidos}`;
+            
+        data = data.filter(d => d.codigo !== docente.codigo);
+        localStorage.setItem("Docentes", JSON.stringify(data));
 
+        // Actualizar los cursos que tenían a este docente
+        let cursos = JSON.parse(localStorage.getItem("cursos_storage"));
+        cursos = cursos.map(curso => {
+            if (curso.profesor === nombreDocente) {
+                curso.profesor = "Sin asignar";
+            }
+            return curso;
+        });
+        localStorage.setItem("cursos_storage", JSON.stringify(cursos));
+
+        docenteCard.remove();
+        });
         //boton de editar
         docenteCard.querySelector(".editar-docente__btn").addEventListener("click", function() {
             document.getElementById("codigo-docente").value = docente.codigo;
@@ -384,10 +401,14 @@ docentes_btn.addEventListener("click", function() {
             document.getElementById("area-docente").value = docente.areaAcademica;
 
             añadirDocenteContainer.classList.remove("hidden")
-        
+            
+            const btnGuardar = document.querySelector(".btn-guardar-docente")
+            const btnClone = btnGuardar.cloneNode(true);
+            btnGuardar.parentNode.replaceChild(btnClone, btnGuardar)
+            
 
         //actualizar en vez de solo agregar
-        document.querySelector(".btn-guardar-docente").onclick = function() {
+        btnClone.onclick = function() {
             let data = JSON.parse(localStorage.getItem("Docentes"));
             const index = data.findIndex(d => d.codigo === docente.codigo);
 
@@ -413,37 +434,50 @@ docentes_btn.addEventListener("click", function() {
 
 //añadir docente
 añadir_docente.addEventListener("click", function() {
+
+    //limpiar los inputs
+    document.getElementById("codigo-docente").value = "";
+    document.getElementById("identificacion-docente").value = "";
+    document.getElementById("apellidos-docente").value = "";
+    document.getElementById("email-docente").value = "";
+    document.getElementById("foto-docente").value = "";
+    document.getElementById("area-docente").value = "";
+
     añadirDocenteContainer.classList.remove("hidden")
+
+    //reasignar el comportamiento de agregar y no de editar
+    const btnGuardar = document.querySelector(".btn-guardar-docente");
+    const btnClone = btnGuardar.cloneNode(true);
+    btnGuardar.parentNode.replaceChild(btnClone, btnGuardar);
+
+    document.querySelector(".btn-guardar-docente").addEventListener("click", function() {
+
+
+        const codigo = document.getElementById("codigo-docente").value;
+        const identificacion = document.getElementById("identificacion-docente").value;
+        const nombres = document.getElementById("nombres-docente").value;
+        const apellidos = document.getElementById("apellidos-docente").value;
+        const email = document.getElementById("email-docente").value;
+        const foto = document.getElementById("foto-docente").value;
+        const areaAcademica = document.getElementById("area-docente").value;
+    
+        if (!codigo || !identificacion || !nombres || !apellidos || !email || !foto || !areaAcademica) {
+            alert("Por favor rellena todos los campos");
+            return;
+        }
+    
+        let data = JSON.parse(localStorage.getItem("Docentes"));
+        data.push({ codigo, identificacion, nombres, apellidos, email, foto, areaAcademica });
+        localStorage.setItem("Docentes", JSON.stringify(data));
+    
+        añadirDocenteContainer.classList.add("hidden");
+        docentes_btn.click();
+    });
 });
 
 document.querySelector(".btn-cancelar-docente").addEventListener("click", function() {
     añadirDocenteContainer.classList.add("hidden")
 });
-
-
-//guardar docente
-document.querySelector(".btn-guardar-docente").addEventListener("click", function() {
-    const codigo = document.getElementById("codigo-docente").value;
-    const identificacion = document.getElementById("identificacion-docente").value;
-    const nombres = document.getElementById("nombres-docente").value;
-    const apellidos = document.getElementById("apellidos-docente").value;
-    const email = document.getElementById("email-docente").value;
-    const foto = document.getElementById("foto-docente").value;
-    const areaAcademica = document.getElementById("area-docente").value;
-
-    if (!codigo || !identificacion || !nombres || !apellidos || !email || !foto || !areaAcademica) {
-        alert("Por favor rellena todos los campos");
-        return;
-    }
-
-    let data = JSON.parse(localStorage.getItem("Docentes"));
-    data.push({ codigo, identificacion, nombres, apellidos, email, foto, areaAcademica });
-    localStorage.setItem("Docentes", JSON.stringify(data));
-
-    añadirDocenteContainer.classList.add("hidden");
-    docentes_btn.click();
-});
-
 
 //mostrar administrativos del localStorage
 administrativos_btn.addEventListener("click", function() {

@@ -12,7 +12,7 @@ ingresar.addEventListener("click", ()=>{
             //console.log("De aqui pasa al dashboard");
             verificarRedireccion(usuarios[index])
             break
-        }else if(usuario.value === usuarios[index]['Email'] && contraseña.value !== usuarios[index]['contraseña']){
+        }else if(usuario.value === usuarios[index]['Email'] || contraseña.value !== usuarios[index]['contraseña']){
             usuario.style.borderColor="red"
             contraseña.style.borderColor="red"
             min_container.innerHTML+=`<small style="color:red;">Contraseña o usuario incorrecto</small>`
@@ -30,7 +30,7 @@ function verificarRedireccion(data){
         window.location.replace("./ABC_Educativa.html")
 
     }else if(data['rol'] == 'profesor'){
-        window.location.replace("./teacher.hmtl")
+        window.location.replace("../pages/profesor.hmtl")
         
     }else if(data['rol'] == 'admin'){
         window.location.replace("./dashboard.html")
