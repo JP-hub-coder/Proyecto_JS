@@ -1,11 +1,22 @@
 const estudiante = [localStorage.getItem("User"), localStorage.getItem("Email")]
 console.log(estudiante);
-const users = JSON.parse(localStorage.getItem("Estudiantes"))
+let users = JSON.parse(localStorage.getItem("Estudiantes"))
 const cursos = JSON.parse(localStorage.getItem("cursos_storage"))
 
 const btnCursos = document.getElementById("cursos");
 const btnCursosTotal = document.getElementById("cursos-total")
 const perfil = document.getElementById("perfil")
+
+document.querySelector(".perfil").addEventListener("click", function(e) {
+    e.stopPropagation();// evita que el click se propage al document
+    const perfil_op = document.querySelector(".perfil_op");
+    perfil_op.classList.remove("hidden")
+});
+document.addEventListener("click", function() { // al darle click por fuera del cuadro me vuelve y esconde el cuadro
+    const perfil_op = document.querySelector(".perfil_op");
+    perfil_op.classList.add("hidden")
+});
+
 
 function getUserData(){
     for(let i = 0; i<users.length; i++){
@@ -21,9 +32,6 @@ function verificarFocus(){
     if(btnCursosTotal.classList.contains("focus")){
         btnCursosTotal.classList = "pages-button"
     }
-    if(perfil.classList.contains("focus")){
-        perfil.classList = "pages-button"
-    }
     return null
 }
 
@@ -32,10 +40,13 @@ btnCursos.addEventListener("click", ()=>{
     btnCursos.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
     document.querySelector(".cursos-container").innerHTML=""
-    document.querySelector(".curso-leccion-container").classList += " hidden"
+    if(document.querySelector(".curso-leccion-container").classList.contains("hidden") == false){
+        document.querySelector(".curso-leccion-container").classList += " hidden"
+    }
 
 
     let data = getUserData();
+    
     
     
     for(let i = 0; i< cursos.length; i++){
@@ -56,19 +67,48 @@ btnCursosTotal.addEventListener("click", ()=>{
     btnCursosTotal.classList+=" focus"
     document.querySelector(".cursos").classList = "cursos"
     document.querySelector(".cursos-container").innerHTML=""
-    document.querySelector(".curso-leccion-container").innerHTML=""
+    if(document.querySelector(".curso-leccion-container").classList.contains("hidden") == false){
+        document.querySelector(".curso-leccion-container").classList += " hidden"
+    }
     //console.log(document.querySelector(".cursos-container"))
     for(let i = 0; i< cursos.length; i++){
         //console.log("el curso "+cursos[i]['nombre']+" Esta en este estudiante")
         document.querySelector(".cursos-container").innerHTML+=`
             <div class="curso-card">
                 <h3>${cursos[i]['nombre']}</h3>
-                <button class="ver_prog button-curso">Ver</button>  
+                <button class="${cursos[i]['codigo']} button-curso" onClick="Inscribirse('${String(cursos[i]['codigo'])}')">Inscribirse</button>  
             </div>
         `
         
     }
 })
+
+function Inscribirse(codigo){
+    let data = getUserData()
+    let curso
+    let index = 0
+    for (let i = 0; i<cursos.length; i++){
+        if(codigo === cursos[i]['codigo']){
+            curso = cursos[i]
+        }        
+        
+    }
+    console.log(curso)
+    if(data['cursos'].includes((curso['nombre']))){
+        alert("Ya estas inscrito")
+    }else{
+        data['cursos'].push(curso['nombre'])
+    }
+    
+    for(let i = 0; i<users.length; i++){
+        if(users[i]['Email'] === data['Email']){
+            index = i;
+        }
+    }
+    users[index] = data
+    localStorage.setItem('Estudiantes', JSON.stringify(users))
+
+}
 
 //Abrir curso
 function AbrirCurso(curso){
