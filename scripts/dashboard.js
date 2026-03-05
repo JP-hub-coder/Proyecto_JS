@@ -37,7 +37,7 @@ document.addEventListener("click", function() { // al darle click por fuera del 
 });
 
 cerrar_sesion.addEventListener("click", function() {
-    window.location.replace("../pages/principal.html")
+    window.location.replace("../index.html")
 });
 
 perfil.addEventListener("click", function() {
@@ -359,7 +359,7 @@ docentes_btn.addEventListener("click", function() {
             <img src="${docente.foto}" class="docente-foto">
             <h3>${docente.nombres} ${docente.apellidos}</h3>
             <p><strong>Identificación:</strong> ${docente.identificacion}</p>
-            <p><strong>Email:</strong> ${docente.email}</p>
+            <p><strong>Email:</strong> ${docente.Email}</p>
             <p><strong>Área Académica:</strong> ${docente.areaAcademica}</p>
             <button class="btn eliminar-docente__btn">Eliminar Docente</button>
             <button class="btn editar-docente__btn">Editar Docente</button>
@@ -367,14 +367,11 @@ docentes_btn.addEventListener("click", function() {
 
         //boton de eliminar
         docenteCard.querySelector(".eliminar-docente__btn").addEventListener("click", function() {
-        let data = JSON.parse(localStorage.getItem("Docentes"));
-        data = data.filter(d => d.codigo !== docente.codigo);
-        localStorage.setItem("Docentes", JSON.stringify(data));
-        docenteCard.remove();
-    
-        // Guardar el nombre del docente antes de eliminarlo
+        // Guardar el nombre del docente ANTES de eliminarlo
         const nombreDocente = `${docente.nombres} ${docente.apellidos}`;
-            
+
+        // Eliminar el docente del localStorage
+        let data = JSON.parse(localStorage.getItem("Docentes"));
         data = data.filter(d => d.codigo !== docente.codigo);
         localStorage.setItem("Docentes", JSON.stringify(data));
 
@@ -388,15 +385,18 @@ docentes_btn.addEventListener("click", function() {
         });
         localStorage.setItem("cursos_storage", JSON.stringify(cursos));
 
+        // Eliminar la card del DOM
         docenteCard.remove();
         });
+
+
         //boton de editar
         docenteCard.querySelector(".editar-docente__btn").addEventListener("click", function() {
             document.getElementById("codigo-docente").value = docente.codigo;
             document.getElementById("identificacion-docente").value = docente.identificacion;
             document.getElementById("nombres-docente").value = docente.nombres;
             document.getElementById("apellidos-docente").value = docente.apellidos;
-            document.getElementById("email-docente").value = docente.email;
+            document.getElementById("email-docente").value = docente.Email;
             document.getElementById("foto-docente").value = docente.foto;
             document.getElementById("area-docente").value = docente.areaAcademica;
 
@@ -438,6 +438,7 @@ añadir_docente.addEventListener("click", function() {
     //limpiar los inputs
     document.getElementById("codigo-docente").value = "";
     document.getElementById("identificacion-docente").value = "";
+    document.getElementById("nombres-docente").value = ""
     document.getElementById("apellidos-docente").value = "";
     document.getElementById("email-docente").value = "";
     document.getElementById("foto-docente").value = "";

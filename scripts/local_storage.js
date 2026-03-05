@@ -1,41 +1,109 @@
-let Usuarios = [
+//Variables usuarios
+let estudiantes = [
     {
-        "Nombre":"Juan",
-        "Email":"juan@gmail.com",
-        "nacimiento":"2001-04-30",
-        "contraseña":"12345678",
-        "rol":"estudiante"
+        codigo: "001",
+        identificacion: "100100001",
+        nombres: "Juan",
+        apellidos: "Augusto",
+        Email: "juanaugusto@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/1.jpg",
+        cursos: ["Fundamentos de Programación", "Razonamiento Lógico"]
     },
     {
-        "Nombre":"Pepe",
-        "Email":"Pepe@gmail.com",
-        "nacimiento":"2002-12-3",
-        "contraseña":"12345678",
-        "rol":"estudiante"
+        codigo: "002",
+        identificacion: "100100002",
+        nombres: "Carlos",
+        apellidos: "Ramirez",
+        Email: "carlosramirez@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/2.jpg",
+        cursos: ["Programación Web", "Backend profesional"]
     },
     {
-        "Nombre":"Maria",
-        "Email":"maria@gmail.com",
-        "nacimiento":"1997-06-15",
-        "contraseña":"12345678",
-        "rol":"profesor"
+        codigo: "003",
+        identificacion: "100100003",
+        nombres: "Luis",
+        apellidos: "Martinez",
+        Email: "luismartinez@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/3.jpg",
+        cursos: ["Fundamentos de Programación"]
     },
     {
-        "Nombre":"Santiago",
-        "Email":"santiago@gmail.com",
-        "nacimiento":"1989-10-25",
-        "contraseña":"12345678",
-        "rol":"profesor"
+        codigo: "004",
+        identificacion: "100100004",
+        nombres: "Andres",
+        apellidos: "Gomez",
+        Email: "andresgomez@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/4.jpg",
+        cursos: ["Programación Web", "Ingles"]
     },
     {
-        "Nombre":"Orlando",
-        "Email":"orlando@gmail.com",
-        "nacimiento":"1970-03-02",
-        "contraseña":"12345678",
-        "rol":"admin"
+        codigo: "005",
+        identificacion: "100100005",
+        nombres: "Diego",
+        apellidos: "Torres",
+        Email: "diegotorres@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/5.jpg",
+        cursos: ["Backend profesional", "Inteligencia Artificial"]
+    },
+    {
+        codigo: "006",
+        identificacion: "100100006",
+        nombres: "Miguel",
+        apellidos: "Castro",
+        Email: "miguelcastro@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/6.jpg",
+        cursos: ["Fundamentos de Programación", "Programación Web", "Razonamiento Lógico"]
+    },
+    {
+        codigo: "007",
+        identificacion: "100100007",
+        nombres: "Pedro",
+        apellidos: "Vargas",
+        Email: "pedrovargas@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/7.jpg",
+        cursos: ["Inglés"]
+    },
+    {
+        codigo: "008",
+        identificacion: "100100008",
+        nombres: "Santiago",
+        apellidos: "Herrera",
+        Email: "santiagoherrera@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/8.jpg",
+        cursos: ["Programación Web", "Backend profesional", "Inglés"]
+    },
+    {
+        codigo: "009",
+        identificacion: "100100009",
+        nombres: "Daniel",
+        apellidos: "Morales",
+        Email: "danielmorales@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/9.jpg",
+        cursos: ["Inteligencia Artificial", "Razonamiento Lógico"]
+    },
+    {
+        codigo: "010",
+        identificacion: "100100010",
+        nombres: "Sebastian",
+        apellidos: "Rojas",
+        Email: "sebastianrojas@campus.edu",
+        contraseña: "12345678",
+        foto: "https://randomuser.me/api/portraits/men/10.jpg",
+        cursos: ["Fundamentos de Programación", "Inglés"]
     }
-]
-localStorage.setItem("usuarios", JSON.stringify(Usuarios))
+    ];
+if(localStorage.getItem("Estudiantes") == null){
+    localStorage.setItem("Estudiantes", JSON.stringify(estudiantes))
+}
 
 let Docentes = [
     {
@@ -43,7 +111,8 @@ let Docentes = [
         identificacion: "1001001001",
         nombres: "Marco",
         apellidos: "Aurelio",
-        email: "marco.aurelio@campus.edu",
+        Email: "marco.aurelio@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/men/11.jpg",
         areaAcademica: "Informática"
     },
@@ -52,7 +121,8 @@ let Docentes = [
         identificacion: "1001001002",
         nombres: "Jonathan",
         apellidos: "Ramirez",
-        email: "jonathan.ramirez@campus.edu",
+        Email: "jonathan.ramirez@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/men/12.jpg",
         areaAcademica: "Desarrollo Web"
     },
@@ -61,7 +131,8 @@ let Docentes = [
         identificacion: "1001001003",
         nombres: "Ortencia",
         apellidos: "Ramos",
-        email: "ortencia.ramos@campus.edu",
+        Email: "ortencia.ramos@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/women/13.jpg",
         areaAcademica: "Backend"
     },
@@ -70,7 +141,8 @@ let Docentes = [
         identificacion: "1001001004",
         nombres: "Roberto",
         apellidos: "Acuña",
-        email: "roberto.acuna@campus.edu",
+        Email: "roberto.acuna@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/men/14.jpg",
         areaAcademica: "Inteligencia Artificial"
     },
@@ -79,7 +151,8 @@ let Docentes = [
         identificacion: "1001001005",
         nombres: "Mariana",
         apellidos: "Torres",
-        email: "mariana.torres@campus.edu",
+        Email: "mariana.torres@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/women/15.jpg",
         areaAcademica: "Lógica"
     },
@@ -88,19 +161,21 @@ let Docentes = [
         identificacion: "1001001006",
         nombres: "Daniel",
         apellidos: "Rodríguez",
-        email: "daniel.rodriguez@campus.edu",
+        Email: "daniel.rodriguez@campus.edu",
+        contraseña: "12345678",
         foto: "https://randomuser.me/api/portraits/men/16.jpg",
         areaAcademica: "Idiomas"
     }
 ];
-localStorage.setItem("Docentes", JSON.stringify(Docentes));
+localStorage.setItem("Docentes", JSON.stringify(Docentes))
 
 let Administrativos = [
     {
         identificacion: "2002002001",
         nombres: "Laura",
         apellidos: "Gómez",
-        email: "laura.gomez@campus.edu",
+        Email: "laura.gomez@campus.edu",
+        contraseña: "12345678",
         telefono: "3101234567",
         cargo: "Coordinadora Académica"
     },
@@ -108,7 +183,8 @@ let Administrativos = [
         identificacion: "2002002002",
         nombres: "Carlos",
         apellidos: "Martínez",
-        email: "carlos.martinez@campus.edu",
+        Email: "carlos.martinez@campus.edu",
+        contraseña: "12345678",
         telefono: "3102345678",
         cargo: "Asistente Administrativo"
     },
@@ -116,13 +192,17 @@ let Administrativos = [
         identificacion: "2002002003",
         nombres: "Ana",
         apellidos: "López",
-        email: "ana.lopez@campus.edu",
+        Email: "ana.lopez@campus.edu",
+        contraseña: "12345678",
         telefono: "3103456789",
         cargo: "Encargada de Admisiones"
     }
 ];
-localStorage.setItem("Administrativos", JSON.stringify(Administrativos));
+if(localStorage.getItem("Administrativos" == null)){
+    localStorage.setItem("Administrativos", JSON.stringify(Administrativos));
+}
 
+//cursos
 let cursos_storage = [
     {
         codigo: "001",
@@ -269,4 +349,5 @@ let cursos_storage = [
         ]
     }
 ];
+
 localStorage.setItem("cursos_storage", JSON.stringify(cursos_storage));
