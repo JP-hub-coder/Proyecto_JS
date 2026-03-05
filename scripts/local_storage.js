@@ -167,7 +167,9 @@ let Docentes = [
         areaAcademica: "Idiomas"
     }
 ];
-localStorage.setItem("Docentes", JSON.stringify(Docentes))
+if(localStorage.getItem("Docentes" == null)){
+    localStorage.setItem("Docentes", JSON.stringify(Docentes));
+}
 
 let Administrativos = [
     {
@@ -198,10 +200,9 @@ let Administrativos = [
         cargo: "Encargada de Admisiones"
     }
 ];
-if(localStorage.getItem("Administrativos" == null)){
+if(localStorage.getItem("Administrativos")){
     localStorage.setItem("Administrativos", JSON.stringify(Administrativos));
 }
-
 //cursos
 let cursos_storage = [
     {
@@ -349,5 +350,6 @@ let cursos_storage = [
         ]
     }
 ];
-
-localStorage.setItem("cursos_storage", JSON.stringify(cursos_storage));
+if(localStorage.getItem("cursos_storage")){
+    localStorage.setItem("cursos_storage", JSON.stringify(cursos_storage));
+}

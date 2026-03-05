@@ -379,3 +379,8 @@
 .hidden {
     display: none !important;
 }
+.focus{
+    background-color: #03495a;
+    border-radius: 7px;
+    
+}
