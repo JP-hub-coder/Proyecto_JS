@@ -1,13 +1,13 @@
-.curso-container{
+.curso-leccion-container{
     width: 100%;
     background-color: #0fa1c5;
 }
-.curso-container h2{
+.curso-leccion-container h2{
     color: white;
     justify-self: center;
     width: fit-content;
 }
-.curso-container ol{
+.curso-leccion-container ol{
     height: 100%;
     background-color: #9CD5FF;
     width: 100px;
@@ -30,4 +30,5 @@ li:hover{
     margin-left: 100px;
     justify-content: center;
     align-items: center;
+    justify-items: center;
 }
