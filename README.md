@@ -1,99 +1,189 @@
-# ABC Educational LMS
+🎓 ABC Educational LMS
 
-## Overview
-ABC Educational LMS is a small **web-based Learning Management System simulation** developed to practice frontend development concepts using **HTML, CSS, and JavaScript**.
+📌 Project Overview
 
-The platform simulates an educational environment where students can log in and access different learning modules from a central dashboard.
+ABC Educational LMS is a web-based Learning Management System (LMS) simulation developed as part of a frontend development practice project.
 
-This project focuses on practicing **DOM manipulation, modular interface design, and browser storage** while recreating the basic behavior of an educational platform.
+The application simulates a basic educational environment where users can log into the platform and access different academic modules through a centralized dashboard interface.
 
----
+The main objective of this project is to strengthen knowledge in frontend development, focusing on DOM manipulation, modular interface design, and client-side data persistence using LocalStorage.
 
-## Features
+This project recreates the fundamental structure of a simplified educational platform where different learning areas are organized into interactive modules that users can open dynamically.
 
-- User login interface
-- Interactive dashboard
-- Dynamic module visualization
-- Hidden modules that appear when selected
-- LocalStorage usage for saving data
-- Smooth transitions between sections
+⸻
 
----
+🛠 Technologies Used
 
-## Learning Modules
+The project was developed using the following technologies:
 
-The dashboard contains different academic modules that represent areas of study:
+Programming Languages
+	•	HTML5 – Defines the structure and layout of the application.
+	•	CSS3 – Responsible for the visual design, styling, and layout.
+	•	JavaScript (Vanilla JS) – Handles application logic and dynamic interactions.
 
-- Fundamentals of Programming
-- Web Programming
-- Backend Development
-- Artificial Intelligence
-- Logical Reasoning
-- English
+Web Technologies
+	•	DOM Manipulation – Used to dynamically show and hide modules.
+	•	LocalStorage API – Allows data to persist within the browser.
 
-Each module becomes visible only when the user selects it from the dashboard.
+Development Approach
+	•	Modular interface design
+	•	Interactive frontend behavior
+	•	Client-side data management
 
----
+⸻
 
-## Technologies Used
+📂 Project Structure
 
-- **HTML5** – Application structure  
-- **CSS3** – Styling and layout  
-- **JavaScript (Vanilla JS)** – Application logic and interactivity  
-- **LocalStorage API** – Client-side data persistence  
-
----
-
-## Project Structure
 Proyecto_JS
 │
 ├── index.html
 ├── README.md
 │
 ├── media
-│ └── images and visual assets
+│   └── images and visual assets
 │
 ├── pages
-│ ├── login.html
-│ ├── dashboard.html
-│ ├── profesor.html
-│ └── ABC_Educativa.html
+│   ├── login.html
+│   ├── dashboard.html
+│   ├── profesor.html
+│   └── ABC_Educativa.html
 │
 ├── scripts
-│ └── JavaScript files
+│   └── JavaScript files
 │
 └── styles
-  └── CSS files
+    └── CSS files
 
----
+This structure separates the project into different folders to maintain a clean, scalable, and organized development environment.
 
-## Purpose of the Project
+⸻
 
-The goal of this project is to strengthen knowledge in:
+🧩 Application Modules / Views
 
-- Frontend development
-- DOM manipulation
-- Web application structure
-- Interface interaction with JavaScript
-- Local data storage in the browser
+🔐 Login Page
 
-It also serves as a **practice project to simulate the architecture of a simple LMS platform**.
+File: login.html
 
----
+This page allows users to access the platform through a simulated authentication process.
 
-## Future Improvements
+Main responsibilities:
+	•	Provide the user login interface
+	•	Validate user interaction
+	•	Redirect the user to the main dashboard
+	•	Store basic session information using LocalStorage
 
-Possible improvements for the project include:
+⸻
 
-- Real authentication system
-- Database integration
-- Backend implementation
-- User roles (students / teachers / administrators)
-- Progress tracking for modules
-- Responsive mobile design
+📊 Dashboard
 
----
+File: dashboard.html
 
-## Author
+The dashboard is the main interface of the platform where users can access different learning modules.
 
-Developed as part of a programming learning process and practice in web development by Juan Pablo Beltran & Santiago Rueda Garcia
+Main features:
+	•	Interactive navigation buttons
+	•	Hidden modules that appear dynamically
+	•	Smooth transitions between sections
+	•	Dynamic interface updates using JavaScript
+
+⸻
+
+📚 Learning Modules
+
+The dashboard includes several academic modules that simulate different areas of study.
+
+Available modules:
+	•	Fundamentals of Programming
+	•	Web Programming
+	•	Backend Development
+	•	Artificial Intelligence
+	•	Logical Reasoning
+	•	English
+
+Each module remains hidden by default and becomes visible when the user selects it from the dashboard.
+
+This behavior is controlled through JavaScript DOM manipulation, allowing the interface to dynamically update without reloading the page.
+
+⸻
+
+👨‍🏫 Professor View
+
+File: profesor.html
+
+This page represents a simplified interface intended for instructors.
+
+Although currently basic, it serves as a placeholder for future features such as:
+	•	Educational content management
+	•	Module editing
+	•	Student monitoring tools
+
+⸻
+
+▶️ How to Run the Application
+
+To run the project locally, follow these steps:
+
+1. Download or Extract the Project
+
+If the project is compressed in a .zip file, extract it to any folder on your computer.
+
+2. Open the Project Folder
+
+Locate the project directory:
+
+Proyecto_JS
+
+3. Launch the Application
+
+Open the file:
+
+login.html
+
+or
+
+index.html
+
+using any modern web browser such as:
+	•	Google Chrome
+	•	Mozilla Firefox
+	•	Microsoft Edge
+
+4. Use the Platform
+	1.	Access the login page
+	2.	Enter the platform
+	3.	Navigate to the dashboard
+	4.	Select any module to display its content
+
+The application runs entirely on the client side, so no server configuration or installation is required.
+
+⸻
+
+🎯 Project Purpose
+
+The primary goal of this project is to reinforce practical skills in:
+	•	Frontend web development
+	•	JavaScript DOM manipulation
+	•	Web application structure and organization
+	•	Interactive user interfaces
+	•	Client-side storage using LocalStorage
+
+Additionally, the project simulates the basic architecture of a learning management system, serving as an educational exercise for understanding how modular educational platforms operate.
+
+⸻
+
+🚀 Future Improvements
+
+Potential enhancements for the platform include:
+	•	Implementation of a real authentication system
+	•	Backend development integration
+	•	Database connectivity
+	•	User role management (students, teachers, administrators)
+	•	Learning progress tracking
+	•	Fully responsive mobile design
+	•	Content management tools for instructors
+
+⸻
+
+👨‍💻 Authors
+
+Developed as part of a web development learning process by Juan Pablo Beltrán & Santiago Rueda García.
