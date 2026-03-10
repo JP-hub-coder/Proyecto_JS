@@ -75,19 +75,24 @@ fundamentos_curso.addEventListener("click", function() {
 
     ocultarTodo()
     cursoFundamentos.classList.remove("hidden");
-
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
+    for (let i = 0; i < cursoData.Modulos.length; i++){
+        let modulo = cursoData.Modulos[i]
+        console.log(modulo[i+1]);
+        leccionesHTML += `<h4> Modulo: ${i+1}</h4>`
+        for(let i = 0; i<modulo[i+1].length; i++){
+            leccionesHTML += ` 
+                
+                    <h4>${modulo[i+1][i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i+1][i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i+1][i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i+1][i].multimedia.url}" target="_blank">${modulo[i+1][i].multimedia.tipo}</a>
+                    </p> <br><br>
+                
+            `;
+        }
+        
     }
 
     cursoFundamentos.innerHTML = `
@@ -96,8 +101,10 @@ fundamentos_curso.addEventListener("click", function() {
             <h2>${cursoData.nombre}</h2><br>
             <h4>Profesor designado: ${cursoData.profesor}</h4>
             <p>Cantidad de estudiantes inscritos: ${cursoData.estudiantesInscritos}</p>
-            <br>Lecciones del curso:<br><br>
+            <br>Modulos del curso:<br><br>
+            <div class="leccion-card">
             ${leccionesHTML}
+            </div>
         </div>
         <button class="btn eliminar-curso__btn">Eliminar el curso</button>
         <button class="btn volver-curso__btn">Volver al inicio</button>
@@ -112,25 +119,25 @@ fundamentos_curso.addEventListener("click", function() {
 progr_web.addEventListener("click", function() {
     const cursoData = JSON.parse(localStorage.getItem("cursos_storage")).find(c => c.codigo === "002");
     const cursoProgWeb = document.querySelector(".prog-web");
-
-    console.log(cursoData.lecciones)
-
     ocultarTodo();
     cursoProgWeb.classList.remove("hidden");
 
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
+    for (let modulo of cursoData.Modulos){
+        for (let i = 0; i < modulo; i++) {
+            leccionesHTML += ` 
+                <div class="leccion-card">
+                    <h4>${modulo[i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i].multimedia.url}" target="_blank">${modulo[i].multimedia.tipo}</a>
+                    </p> <br><br>
+                </div>
+            `;
+        }
     }
+    
     
 
     cursoProgWeb.innerHTML = `
@@ -162,17 +169,19 @@ backend.addEventListener("click", function() {
     cursoBackend.classList.remove("hidden");
 
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
+    for (let modulo of cursoData.Modulos){
+        for (let i = 0; i < modulo; i++) {
+            leccionesHTML += ` 
+                <div class="leccion-card">
+                    <h4>${modulo[i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i].multimedia.url}" target="_blank">${modulo[i].multimedia.tipo}</a>
+                    </p> <br><br>
+                </div>
+            `;
+        }
     }
     
     cursoBackend.innerHTML = `
@@ -203,17 +212,19 @@ IA.addEventListener("click", function() {
     cursoIA.classList.remove("hidden");
 
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
+    for (let modulo of cursoData.Modulos){
+        for (let i = 0; i < modulo; i++) {
+            leccionesHTML += ` 
+                <div class="leccion-card">
+                    <h4>${modulo[i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i].multimedia.url}" target="_blank">${modulo[i].multimedia.tipo}</a>
+                    </p> <br><br>
+                </div>
+            `;
+        }
     }
 
     cursoIA.innerHTML = `
@@ -244,19 +255,20 @@ razonamiento.addEventListener("click", function() {
     cursoRazonamiento.classList.remove("hidden");
 
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
+    for (let modulo of cursoData.Modulos){
+        for (let i = 0; i < modulo; i++) {
+            leccionesHTML += ` 
+                <div class="leccion-card">
+                    <h4>${modulo[i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i].multimedia.url}" target="_blank">${modulo[i].multimedia.tipo}</a>
+                    </p> <br><br>
+                </div>
+            `;
+        }
     }
-
     cursoRazonamiento.innerHTML = `
         <div>
             <h2>#${cursoData.codigo}</h2>
@@ -285,18 +297,20 @@ ingles.addEventListener("click", function() {
     cursoIngles.classList.remove("hidden");
 
     let leccionesHTML = "";
-    for (let leccion of cursoData.lecciones) {
-        leccionesHTML += ` 
-            <div class="leccion-card">
-                <h4>${leccion.titulo}</h4>
-                <p><strong>Horario:</strong> ${leccion.horario}</p>
-                <p><strong>Contenido:</strong> ${leccion.contenido}</p>
-                <p><strong>Multimedia:</strong> 
-                    <a href="${leccion.multimedia.url}" target="_blank">${leccion.multimedia.tipo}</a>
-                </p> <br><br>
-            </div>
-        `;
-    }  
+    for (let modulo of cursoData.Modulos){
+        for (let i = 0; i < modulo; i++) {
+            leccionesHTML += ` 
+                <div class="leccion-card">
+                    <h4>${modulo[i].titulo}</h4>
+                    <p><strong>Horario:</strong> ${modulo[i].horario}</p>
+                    <p><strong>Contenido:</strong> ${modulo[i].contenido}</p>
+                    <p><strong>Multimedia:</strong> 
+                        <a href="${modulo[i].multimedia.url}" target="_blank">${modulo[i].multimedia.tipo}</a>
+                    </p> <br><br>
+                </div>
+            `;
+        }
+    }
 
     cursoIngles.innerHTML = `
         <div>

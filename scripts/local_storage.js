@@ -200,7 +200,7 @@ let Administrativos = [
         cargo: "Encargada de Admisiones"
     }
 ];
-if(localStorage.getItem("Administrativos")){
+if(localStorage.getItem("Administrativos") == null){
     localStorage.setItem("Administrativos", JSON.stringify(Administrativos));
 }
 //cursos
@@ -210,23 +210,44 @@ let cursos_storage = [
         nombre: "Fundamentos de Programación",
         profesor: "Marco Aurelio",
         estudiantesInscritos: 59,
-        lecciones: [
-            { titulo: "Lógica de programación", 
-                horario: "6 a.m - 7 a.m",
-                contenido: "Aprenderás a estructurar el pensamiento para resolver problemas mediante algoritmos y diagramas de flujo.",
-                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-            { titulo: "Estructura de datos", 
-                horario: "7 a.m - 8 a.m",
-                contenido: "Estudiarás las principales estructuras de datos como arreglos, listas, pilas y colas.",
-                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-            { titulo: "Pensamiento Computacional", 
-                horario: "8 a.m - 9 a.m",
-                contenido: "Desarrollarás habilidades para descomponer problemas complejos en partes más simples y manejables.",
-                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-            { titulo: "Programación orientada a objetos (POO)", 
-                horario: "9 a.m - 10 a.m",
-                contenido: "Aprenderás los pilares de la POO: encapsulamiento, herencia, polimorfismo y abstracción.",
-                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+        Modulos: [
+            {1: [
+                { titulo: "Lógica de programación 1", 
+                    horario: "6 a.m - 7 a.m",
+                    contenido: "Aprenderás a estructurar el pensamiento para resolver problemas mediante algoritmos y diagramas de flujo.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Lógica de programación 2", 
+                    horario: "6 a.m - 7 a.m",
+                    contenido: "Aprenderás a estructurar el pensamiento para resolver problemas mediante algoritmos y diagramas de flujo.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+
+                { titulo: "Estructura de datos 1", 
+                    horario: "7 a.m - 8 a.m",
+                    contenido: "Estudiarás las principales estructuras de datos como arreglos, listas, pilas y colas.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Estructura de datos 2", 
+                    horario: "7 a.m - 8 a.m",
+                    contenido: "Estudiarás las principales estructuras de datos como arreglos, listas, pilas y colas.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]},
+            {2:  [
+                { titulo: "Pensamiento Computacional 1", 
+                    horario: "8 a.m - 9 a.m",
+                    contenido: "Desarrollarás habilidades para descomponer problemas complejos en partes más simples y manejables.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Pensamiento Computacional 2", 
+                    horario: "8 a.m - 9 a.m",
+                    contenido: "Desarrollarás habilidades para descomponer problemas complejos en partes más simples y manejables.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Programación orientada a objetos (POO) 1", 
+                    horario: "9 a.m - 10 a.m",
+                    contenido: "Aprenderás los pilares de la POO: encapsulamiento, herencia, polimorfismo y abstracción.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Programación orientada a objetos (POO) 2", 
+                    horario: "9 a.m - 10 a.m",
+                    contenido: "Aprenderás los pilares de la POO: encapsulamiento, herencia, polimorfismo y abstracción.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]}
         ]
     },
     {
@@ -234,122 +255,176 @@ let cursos_storage = [
         nombre: "Programación Web",
         profesor: "Jonathan Ramirez",
         estudiantesInscritos: 47,
-        lecciones: [
-        { titulo: "HTML y CSS", 
-            horario: "10 a.m - 11 a.m",
-            contenido: "Aprenderás la estructura básica de una página web con HTML y cómo darle estilos con CSS.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "JavaScript", 
-            horario: "11 a.m - 12 p.m",
-            contenido: "Aprenderás los fundamentos de JavaScript, el lenguaje de programación del navegador.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Frameworks", 
-            horario: "12 p.m - 1 p.m",
-            contenido: "Explorarás los principales frameworks de JavaScript como React, Vue y Angular.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Consumo de APIs", 
-            horario: "1 p.m - 2 p.m",
-            contenido: "Aprenderás a conectar tu aplicación con servicios externos mediante APIs REST.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "CRUD (Create, Read, Update, Delete)", 
-            horario: "2 p.m - 3 p.m",
-            contenido: "Implementarás operaciones básicas de creación, lectura, actualización y eliminación de datos.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
-        ]
+        Modulos: [{1:  [
+            { titulo: "HTML y CSS 1", 
+                horario: "10 a.m - 11 a.m",
+                contenido: "Aprenderás la estructura básica de una página web con HTML y cómo darle estilos con CSS.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "JavaScript 1", 
+                horario: "11 a.m - 12 p.m",
+                contenido: "Aprenderás los fundamentos de JavaScript, el lenguaje de programación del navegador.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "JavaScript 2", 
+                horario: "11 a.m - 12 p.m",
+                contenido: "Aprenderás los fundamentos de JavaScript, el lenguaje de programación del navegador.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "JavaScript 3", 
+                horario: "11 a.m - 12 p.m",
+                contenido: "Aprenderás los fundamentos de JavaScript, el lenguaje de programación del navegador.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]},{2:  [
+                { titulo: "Frameworks 1", 
+                    horario: "12 p.m - 1 p.m",
+                    contenido: "Explorarás los principales frameworks de JavaScript como React, Vue y Angular.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Frameworks 2", 
+                    horario: "12 p.m - 1 p.m",
+                    contenido: "Explorarás los principales frameworks de JavaScript como React, Vue y Angular.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Consumo de APIs", 
+                    horario: "1 p.m - 2 p.m",
+                    contenido: "Aprenderás a conectar tu aplicación con servicios externos mediante APIs REST.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "CRUD (Create, Read, Update, Delete)", 
+                    horario: "2 p.m - 3 p.m",
+                    contenido: "Implementarás operaciones básicas de creación, lectura, actualización y eliminación de datos.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]
+                
+            }]
     },
     {
         codigo: "003",
         nombre: "Backend Profesional",
         profesor: "Ortencia Ramos",
         estudiantesInscritos: 48,
-        lecciones: [
-        { titulo: "Node.js", 
-            horario: "3 p.m - 4 p.m",
-            contenido: "Aprenderás a crear servidores y aplicaciones del lado del servidor usando Node.js.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Creación de API REST", 
-            horario: "4 p.m - 5 p.m",
-            contenido: "Diseñarás y construirás APIs RESTful siguiendo buenas prácticas de desarrollo.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Manejo de seguridad web", 
-            horario: "5 p.m - 6 p.m",
-            contenido: "Estudiarás las principales vulnerabilidades web y cómo proteger tus aplicaciones.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
-        ]   
+        Modulos: [{1:  [
+            { titulo: "Node.js", 
+                horario: "3 p.m - 4 p.m",
+                contenido: "Aprenderás a crear servidores y aplicaciones del lado del servidor usando Node.js.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Creación de API REST", 
+                horario: "4 p.m - 5 p.m",
+                contenido: "Diseñarás y construirás APIs RESTful siguiendo buenas prácticas de desarrollo.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Manejo de seguridad web", 
+                horario: "5 p.m - 6 p.m",
+                contenido: "Estudiarás las principales vulnerabilidades web y cómo proteger tus aplicaciones.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]   }]
     },
     {
         codigo: "004",
         nombre: "Inteligencia Artificial",
         profesor: "Roberto Acuña",
         estudiantesInscritos: 30,
-        lecciones: [
-        { titulo: "Fundamentos de IA", 
-            horario: "3 p.m - 4 p.m",
-            contenido: "Conocerás los conceptos básicos de la inteligencia artificial y su historia.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Machine Learning", 
-            horario: "4 p.m - 5 p.m",
-            contenido: "Aprenderás los algoritmos de aprendizaje automático y cómo entrenar modelos.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Procesamiento de datos", 
-            horario: "5 p.m - 6 p.m",
-            contenido: "Estudiarás técnicas para limpiar, transformar y analizar grandes volúmenes de datos.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Conexiones Neuronales", 
-            horario: "6 p.m - 7 p.m",
-            contenido: "Explorarás las redes neuronales artificiales y cómo imitan el cerebro humano.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
-        ]
+        Modulos: [{1:  [
+            { titulo: "Fundamentos de IA", 
+                horario: "3 p.m - 4 p.m",
+                contenido: "Conocerás los conceptos básicos de la inteligencia artificial y su historia.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Machine Learning", 
+                horario: "4 p.m - 5 p.m",
+                contenido: "Aprenderás los algoritmos de aprendizaje automático y cómo entrenar modelos.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Procesamiento de datos", 
+                horario: "5 p.m - 6 p.m",
+                contenido: "Estudiarás técnicas para limpiar, transformar y analizar grandes volúmenes de datos.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Conexiones Neuronales", 
+                horario: "6 p.m - 7 p.m",
+                contenido: "Explorarás las redes neuronales artificiales y cómo imitan el cerebro humano.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]}]
     },
     {
         codigo: "005",
         nombre: "Razonamiento Lógico",
         profesor: "Mariana Torres",
         estudiantesInscritos: 28,
-        lecciones: [
-        { titulo: "Principios básicos de lógica", 
-            horario: "8 a.m - 9 a.m",
-            contenido: "Aprenderás los fundamentos del razonamiento lógico y su aplicación en la vida cotidiana.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Conectores lógicos y proposiciones", 
-            horario: "9 a.m - 10 a.m",
-            contenido: "Estudiarás los conectores lógicos como conjunción, disyunción y negación.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Inferencias y argumentación", 
-            horario: "10 a.m - 11 a.m",
-            contenido: "Aprenderás a construir argumentos válidos y a identificar falacias lógicas.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Resolución de problemas lógicos", 
-            horario: "11 a.m - 12 p.m",
-            contenido: "Practicarás la resolución de problemas aplicando técnicas de razonamiento lógico.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
-        ]
+        Modulos: [{1:  [
+            { titulo: "Principios básicos de lógica", 
+                horario: "8 a.m - 9 a.m",
+                contenido: "Aprenderás los fundamentos del razonamiento lógico y su aplicación en la vida cotidiana.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Conectores lógicos y proposiciones", 
+                horario: "9 a.m - 10 a.m",
+                contenido: "Estudiarás los conectores lógicos como conjunción, disyunción y negación.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Inferencias y argumentación", 
+                horario: "10 a.m - 11 a.m",
+                contenido: "Aprenderás a construir argumentos válidos y a identificar falacias lógicas.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Resolución de problemas lógicos", 
+                horario: "11 a.m - 12 p.m",
+                contenido: "Practicarás la resolución de problemas aplicando técnicas de razonamiento lógico.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]}]
     },
     {
         codigo: "006",
         nombre: "Inglés",
         profesor: "Daniel Rodríguez",
         estudiantesInscritos: 32,
-        lecciones: [
-        { titulo: "Grammar Basics", 
-            horario: "8 a.m - 9 a.m",
-            contenido: "Estudiarás las reglas gramaticales fundamentales del idioma inglés.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Listening and Pronunciation", 
-            horario: "9 a.m - 10 a.m",
-            contenido: "Mejorarás tu comprensión auditiva y pronunciación mediante ejercicios prácticos.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Reading Comprehension", 
-            horario: "10 a.m - 11 a.m",
-            contenido: "Desarrollarás habilidades de lectura y comprensión de textos en inglés.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
-        { titulo: "Conversational Practice", 
-            horario: "11 a.m - 12 p.m",
-            contenido: "Practicarás conversaciones cotidianas para ganar fluidez y confianza en el idioma.",
-            multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
-        ]
+        Modulos: [{1: [
+            { titulo: "Grammar Basics", 
+                horario: "8 a.m - 9 a.m",
+                contenido: "Estudiarás las reglas gramaticales fundamentales del idioma inglés.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Listening and Pronunciation", 
+                horario: "9 a.m - 10 a.m",
+                contenido: "Mejorarás tu comprensión auditiva y pronunciación mediante ejercicios prácticos.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Reading Comprehension", 
+                horario: "10 a.m - 11 a.m",
+                contenido: "Desarrollarás habilidades de lectura y comprensión de textos en inglés.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+            { titulo: "Conversational Practice", 
+                horario: "11 a.m - 12 p.m",
+                contenido: "Practicarás conversaciones cotidianas para ganar fluidez y confianza en el idioma.",
+                multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+            ]},{2: [
+                { titulo: "Grammar Medium", 
+                    horario: "8 a.m - 9 a.m",
+                    contenido: "Estudiarás las reglas gramaticales fundamentales del idioma inglés.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Listening and Pronunciation", 
+                    horario: "9 a.m - 10 a.m",
+                    contenido: "Mejorarás tu comprensión auditiva y pronunciación mediante ejercicios prácticos.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Reading Comprehension", 
+                    horario: "10 a.m - 11 a.m",
+                    contenido: "Desarrollarás habilidades de lectura y comprensión de textos en inglés.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                { titulo: "Conversational Practice", 
+                    horario: "11 a.m - 12 p.m",
+                    contenido: "Practicarás conversaciones cotidianas para ganar fluidez y confianza en el idioma.",
+                    multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+                ]},{3: [
+                    { titulo: "Grammar Advanced", 
+                        horario: "8 a.m - 9 a.m",
+                        contenido: "Estudiarás las reglas gramaticales fundamentales del idioma inglés.",
+                        multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                    { titulo: "Listening and Pronunciation", 
+                        horario: "9 a.m - 10 a.m",
+                        contenido: "Mejorarás tu comprensión auditiva y pronunciación mediante ejercicios prácticos.",
+                        multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                    { titulo: "Reading Comprehension", 
+                        horario: "10 a.m - 11 a.m",
+                        contenido: "Desarrollarás habilidades de lectura y comprensión de textos en inglés.",
+                        multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}},
+                    { titulo: "Conversational Practice", 
+                        horario: "11 a.m - 12 p.m",
+                        contenido: "Practicarás conversaciones cotidianas para ganar fluidez y confianza en el idioma.",
+                        multimedia: {tipo: "video", url: "https://youtu.be/NUgebKnHGKE?si=mcOyw0eVHSAv1DXC"}}
+                    ]}]
     }
 ];
-if(localStorage.getItem("cursos_storage")){
+if(localStorage.getItem("cursos_storage") == null){
     localStorage.setItem("cursos_storage", JSON.stringify(cursos_storage));
 }
+
+localStorage.setItem("Docentes", JSON.stringify(Docentes));
+localStorage.setItem("cursos_storage", JSON.stringify(cursos_storage));
+localStorage.setItem("Administrativos", JSON.stringify(Administrativos));
+localStorage.setItem("Estudiantes", JSON.stringify(estudiantes))
